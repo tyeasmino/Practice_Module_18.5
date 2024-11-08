@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block subTitle %} Profile Page {% endblock subTitle %} </title>
+
+{% block content %}
+
+<div class="text-center">
+<h1 > Welcome to your profile, <strong> {{user}} </strong> </h1> 
+<img  class="w-50"  src=" {% static 'profile.gif' %} ">
+</div>
+{% endblock content %}

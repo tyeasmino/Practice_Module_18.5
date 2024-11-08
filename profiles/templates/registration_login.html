@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block subTitle %} {{ pageHeading }}  Page {% endblock subTitle %} </title>
+
+{% block content %}
+
+
+{% load crispy_forms_tags %}
+
+
+<div class="container">
+    <h1  class="text-center">{{ pageHeading }} Page  </h1> 
+    <div class="row align-items-center">
+     {% if pageHeading == 'Registraion' %}
+     <div class="col">
+        <img class="img-fluid" src=" {% static 'registration.gif' %} ">
+      </div>
+      {% endif %}
+      
+      <div class="col">
+        <form method="post">
+            {% csrf_token %}
+            {{form | crispy}} 
+            <button class="btn btn-success mt-2 mb-5">{{ pageHeading }}</button>
+        </form>        
+
+        {% if pageHeading == 'Registraion' %}
+            <p>Already have an account? <a href=" {% url 'user_login'  %} "> Login </a></p>
+        {% else %}
+            <p>No account for login? <a href=" {% url 'user_register'  %} "> Register </a></p>
+        {% endif %}
+      </div>
+
+      {% if pageHeading == 'Login' %}
+        <div class="col">
+            <img class="img-fluid"  src=" {% static 'login.gif' %} ">
+        </div> 
+      {% endif %}
+    </div>
+  </div>
+
+
+
+
+{% endblock content %}

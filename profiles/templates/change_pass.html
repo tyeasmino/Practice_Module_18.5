@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subTitle %} Password Change Page {% endblock subTitle %} </title>
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<div class="container">
+    <h1  class="text-center">Password Change Page  </h1> 
+    <div class="row align-items-center">
+     
+     <div class="col-4">
+        <img class="img-fluid" src=" {% static 'password.png' %} ">
+      </div>
+ 
+      
+      <div class="col-6 offset-2">
+        <form method="post">
+            {% csrf_token %}
+            {{form | crispy}} 
+            <button class="btn btn-success">Change Password</button>
+        </form>        
+      </div>
+ 
+    </div>
+  </div>
+
+{% endblock content %} 
